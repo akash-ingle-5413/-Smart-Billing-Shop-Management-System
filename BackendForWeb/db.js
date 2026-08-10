@@ -1,24 +1,25 @@
-const express = require("express");
-const cors = require("cors");
-const port = 8080;
+const mysql = require("mysql2");
 
-const db = require("./db");
+const db = mysql.createConnection({
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-
-app.get("/", (req, res) => {
-
-    res.send("RetailIQ API is running");
+    host: "localhost",
+    user: "root",
+    password: "root123",
+    database: "retailiq",
+    port: 3306
 
 });
 
+db.connect((err) => {
 
-app.listen(port, () => {
+    if (err) {
+        console.log("Database connection failed");
+        console.log(err);
+        return;
+    }
 
-    console.log("Server running on port 8080");
+    console.log("MySQL connected successfully");
 
 });
+
+module.exports = db;
