@@ -10,24 +10,46 @@ loginForm.addEventListener("submit", async (event) => {
 
     const email = document.getElementById("email").value;
 
+    const password = document.getElementById("password").value;
+
 
     try {
 
         const response = await fetch(
-            `http://localhost:8080/api/user?email=${encodeURIComponent(email)}`
+            "http://localhost:8080/api/login",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+
+            }
         );
 
 
         const data = await response.json();
 
 
-        if (data.exists) {
+        console.log(data);
 
-            message.innerText = "User exists";
+
+        if (data.success) {
+
+            message.innerText = "Login successful!";
+
+            // Go to main page
+            window.location.href = "dashboard.html";
 
         } else {
 
-            message.innerText = "User does not exist";
+            message.innerText = data.message;
 
         }
 
@@ -36,7 +58,8 @@ loginForm.addEventListener("submit", async (event) => {
 
         console.log(error);
 
-        message.innerText = "Server error";
+        message.innerText =
+            "Unable to connect to server";
 
     }
 
