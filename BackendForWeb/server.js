@@ -18,7 +18,7 @@ app.post("/", (req, res) => {
 
 
 // Check if user exists
-app.get("/api/user", (req, res) => {
+app.post("/api/login", (req, res) => {
 
     const email = req.query.email;
 
