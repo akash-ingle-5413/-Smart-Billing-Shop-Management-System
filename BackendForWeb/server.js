@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
 const port = 8080;
 
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 
 // LOGIN API
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", (req, res) => {
 
     const { email, password } = req.body;
 
@@ -74,7 +74,7 @@ app.post("/api/login", async (req, res) => {
 
 
         // Compare password
-        const passwordCorrect = await bcrypt.compare(
+        const passwordCorrect = await(
             password,
             user.password
         );
