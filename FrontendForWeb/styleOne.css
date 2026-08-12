@@ -107,6 +107,15 @@ input {
     font-size: 15px;
 
     outline: none;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Input Placeholder */
+
+input::placeholder {
+    color: #94a3b8;
 }
 
 
@@ -114,6 +123,7 @@ input {
 
 input:focus {
     border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 
@@ -137,6 +147,8 @@ form button {
     font-size: 16px;
 
     cursor: pointer;
+
+    transition: all 0.2s ease;
 }
 
 
@@ -144,6 +156,31 @@ form button {
 
 form button:hover {
     background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* Login Button Active */
+
+form button:active {
+    transform: scale(0.98);
+}
+
+
+/* Message (for JS validation feedback) */
+
+#message {
+    font-size: 13px;
+    margin-top: 10px;
+    min-height: 16px;
+}
+
+#message.error {
+    color: #dc2626;
+}
+
+#message.success {
+    color: #16a34a;
 }
 
 
@@ -159,6 +196,12 @@ form button:hover {
     font-size: 14px;
 
     text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+.forgot:hover {
+    text-decoration: underline;
 }
 
 
@@ -214,6 +257,8 @@ form button:hover {
     font-size: 15px;
 
     cursor: pointer;
+
+    transition: all 0.2s ease;
 }
 
 
@@ -221,6 +266,13 @@ form button:hover {
 
 .register-btn:hover {
     background: #eff6ff;
+}
+
+
+/* Register Active */
+
+.register-btn:active {
+    transform: scale(0.98);
 }
 
 
@@ -240,4 +292,4 @@ form button:hover {
         font-size: 35px;
     }
 
-} 
+}
