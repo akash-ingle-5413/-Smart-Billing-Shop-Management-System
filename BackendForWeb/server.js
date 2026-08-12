@@ -41,10 +41,16 @@ app.post("/api/login", (req, res) => {
 
 
     // Find user by email
-    const sql = "SELECT * FROM users WHERE email = ?";
+   
+    const sql = `
+
+    SELECT * FROM users
+    WHERE email = ? OR mobile = ?
+
+      `;
 
 
-    db.query(sql, [email], (err, result) => {
+    db.query(sql, [email, email], (err, result) => {
 
         if (err) {
 
@@ -63,7 +69,7 @@ app.post("/api/login", (req, res) => {
 
             return res.status(401).json({
                 success: false,
-                message: "Email is not registered"
+                message: "Email or mobile number is not registered"
             });
 
         }
