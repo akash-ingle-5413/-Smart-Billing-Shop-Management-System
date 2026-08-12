@@ -1,77 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RetailIQ - Select Role</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleOne.css">
+</head>
+ 
 <body>
  
 <div class="container">
  
-    <div class="logo">
-        🛒
+    <div class="brand">
+        <div class="logo">🛒</div>
+        <h1>RetailIQ</h1>
+        <div class="barcode" aria-hidden="true"></div>
+        <p>Smart Billing & Shop Management System</p>
     </div>
- 
-    <h1>RetailIQ</h1>
- 
-    <p>Smart Billing & Shop Management System</p>
  
     <div class="login-card">
  
-        <h2>Welcome Back</h2>
+        <span class="ticket-no">NO. 00214</span>
+ 
+        <h2>Welcome back</h2>
  
         <p class="subtitle">
             Login to manage your shop
         </p>
  
- 
         <form id="loginForm">
  
+            <label class="field-label" for="email">Email or mobile number</label>
             <input
                 type="email"
                 id="email"
-                placeholder="Email or Mobile Number"
+                placeholder="you@yourshop.com"
                 required
             >
  
- 
+            <label class="field-label" for="password">Password</label>
             <input
                 type="password"
                 id="password"
-                placeholder="Password"
+                placeholder="••••••••"
                 required
             >
  
- 
             <button type="submit">
-                Log In
+                Log in
             </button>
  
         </form>
  
- 
         <p id="message"></p>
  
- 
         <a href="#" class="forgot">
-            Forgot Password?
+            Forgot password?
         </a>
  
- 
         <div class="divider">
- 
             <span>OR</span>
- 
         </div>
- 
  
         <button
             type="button"
             class="register-btn"
             onclick="registerPage()">
  
-            Create New Account
+            Create new account
  
         </button>
  
     </div>
+ 
+    <p class="footnote">Every sale, tracked. Every shop, simplified.</p>
  
 </div>
  
  
 <script src="script.js"></script>
 </body>
+</html>

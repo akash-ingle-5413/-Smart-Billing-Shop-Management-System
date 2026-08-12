@@ -1,295 +1,373 @@
+:root {
+    --paper: #FAF6EF;
+    --ink: #1E2A22;
+    --ink-soft: #5B6B5F;
+    --ink-faint: #8A9389;
+ 
+    --emerald: #0E6B4F;
+    --emerald-dark: #0A4E3A;
+    --emerald-tint: #E7F1EC;
+ 
+    --gold: #C9922B;
+    --gold-tint: #F7ECD8;
+ 
+    --line: #DCD5C6;
+    --card: #FFFFFF;
+ 
+    --danger: #B3402A;
+    --success: #0E6B4F;
+ 
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+}
+ 
+ 
+/* ============================
+   Reset
+   ============================ */
+ 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
-
+ 
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background: #f4f6f8;
+ 
+    font-family: var(--font-body);
+    color: var(--ink);
+ 
+    background-color: var(--paper);
+    background-image:
+        radial-gradient(circle, rgba(30, 42, 34, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+ 
+    padding: 20px;
 }
-
-
-/* Main Container */
-
+ 
+ 
+/* ============================
+   Container / Brand block
+   ============================ */
+ 
 .container {
     width: 100%;
     max-width: 400px;
     text-align: center;
-    padding: 20px;
 }
-
-
-/* Logo */
-
+ 
+.brand {
+    margin-bottom: 24px;
+}
+ 
 .logo {
-    font-size: 45px;
-    margin-bottom: 5px;
+    font-size: 42px;
+    margin-bottom: 6px;
 }
-
-
-/* Website Name */
-
+ 
 h1 {
-    font-size: 40px;
-    color: #1e293b;
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--emerald-dark);
+    letter-spacing: 0.5px;
 }
-
-
-/* Website Description */
-
-.container > p {
-    color: #64748b;
-    margin: 10px 0 25px;
+ 
+/* Decorative barcode strip under the wordmark, ties to the billing theme */
+.barcode {
+    height: 18px;
+    margin: 12px auto 14px;
+    width: 160px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--ink) 0px,
+        var(--ink) 2px,
+        transparent 2px,
+        transparent 5px,
+        var(--ink) 5px,
+        var(--ink) 6px,
+        transparent 6px,
+        transparent 10px
+    );
+    opacity: 0.55;
 }
-
-
-/* Login Card */
-
-.login-card {
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 15px;
-
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-
-/* Welcome Heading */
-
-.login-card h2 {
-    margin: 0 0 8px;
-
-    font-size: 25px;
-
-    color: #1e293b;
-}
-
-
-/* Subtitle */
-
-.subtitle {
-    color: #64748b;
-
+ 
+.container > .brand > p {
+    color: var(--ink-soft);
     font-size: 14px;
-
-    margin-bottom: 25px;
+    letter-spacing: 0.2px;
 }
-
-
-/* Form */
-
+ 
+ 
+/* ============================
+   Login card — styled as a receipt slip
+   ============================ */
+ 
+.login-card {
+    position: relative;
+    background: var(--card);
+    padding: 38px 32px 34px;
+    text-align: left;
+ 
+    box-shadow: 0 1px 2px rgba(30, 42, 34, 0.04), 0 12px 28px rgba(30, 42, 34, 0.1);
+ 
+    /* Torn receipt edge at the bottom via mask */
+    -webkit-mask-image: linear-gradient(#000, #000 calc(100% - 14px), transparent calc(100% - 14px)),
+        repeating-conic-gradient(#000 0deg 90deg, transparent 90deg 180deg);
+    -webkit-mask-size: 100% 100%, 16px 16px;
+    -webkit-mask-position: 0 0, bottom;
+    -webkit-mask-repeat: no-repeat, repeat-x;
+    mask-image: linear-gradient(#000, #000 calc(100% - 14px), transparent calc(100% - 14px)),
+        repeating-conic-gradient(#000 0deg 90deg, transparent 90deg 180deg);
+    mask-size: 100% 100%, 16px 16px;
+    mask-position: 0 0, bottom;
+    mask-repeat: no-repeat, repeat-x;
+    padding-bottom: 48px;
+}
+ 
+.ticket-no {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+ 
+.login-card h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 6px;
+}
+ 
+.subtitle {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-bottom: 26px;
+}
+ 
+ 
+/* ============================
+   Form
+   ============================ */
+ 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 4px;
 }
-
-
-/* Input Fields */
-
+ 
+.field-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    margin-top: 12px;
+}
+ 
+.field-label:first-child {
+    margin-top: 0;
+}
+ 
 input {
     width: 100%;
-
-    padding: 13px 15px;
-
-    border: 1px solid #cbd5e1;
-
-    border-radius: 8px;
-
+    padding: 12px 14px;
+ 
+    border: 1px solid var(--line);
+    border-radius: 6px;
+ 
+    font-family: var(--font-body);
     font-size: 15px;
-
+    color: var(--ink);
+ 
     outline: none;
-
-    transition: all 0.2s ease;
+    background: var(--paper);
+ 
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
-
-
-/* Input Placeholder */
-
+ 
 input::placeholder {
-    color: #94a3b8;
+    color: var(--ink-faint);
 }
-
-
-/* Input Focus */
-
+ 
 input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: var(--emerald);
+    background: var(--card);
+    box-shadow: 0 0 0 3px var(--emerald-tint);
 }
-
-
-/* Login Button */
-
+ 
 form button {
     width: 100%;
-
     padding: 13px;
-
-    margin-top: 5px;
-
+    margin-top: 22px;
+ 
     border: none;
-
-    border-radius: 8px;
-
-    background: #2563eb;
-
-    color: white;
-
-    font-size: 16px;
-
+    border-radius: 6px;
+ 
+    background: var(--emerald);
+    color: var(--card);
+ 
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+ 
     cursor: pointer;
-
-    transition: all 0.2s ease;
+    transition: background 0.15s ease, transform 0.1s ease;
 }
-
-
-/* Login Button Hover */
-
+ 
 form button:hover {
-    background: #1d4ed8;
-    transform: translateY(-1px);
+    background: var(--emerald-dark);
 }
-
-
-/* Login Button Active */
-
+ 
 form button:active {
     transform: scale(0.98);
 }
-
-
-/* Message (for JS validation feedback) */
-
+ 
+ 
+/* ============================
+   Message / feedback
+   ============================ */
+ 
 #message {
+    font-family: var(--font-body);
     font-size: 13px;
-    margin-top: 10px;
+    margin-top: 12px;
     min-height: 16px;
 }
-
+ 
 #message.error {
-    color: #dc2626;
+    color: var(--danger);
 }
-
+ 
 #message.success {
-    color: #16a34a;
+    color: var(--success);
 }
-
-
-/* Forgot Password */
-
+ 
+ 
+/* ============================
+   Forgot password
+   ============================ */
+ 
 .forgot {
     display: block;
-
-    margin-top: 18px;
-
-    color: #2563eb;
-
-    font-size: 14px;
-
+    margin-top: 16px;
+    text-align: center;
+ 
+    color: var(--emerald);
+    font-size: 13px;
+    font-weight: 500;
     text-decoration: none;
-
-    transition: all 0.2s ease;
 }
-
+ 
 .forgot:hover {
     text-decoration: underline;
 }
-
-
-/* OR Divider */
-
+ 
+ 
+/* ============================
+   Divider
+   ============================ */
+ 
 .divider {
     display: flex;
-
     align-items: center;
-
-    margin: 25px 0;
-
-    color: #94a3b8;
-
-    font-size: 13px;
+    margin: 24px 0;
+ 
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
 }
-
-
+ 
 .divider::before,
 .divider::after {
     content: "";
-
     flex: 1;
-
     height: 1px;
-
-    background: #e2e8f0;
+    background: var(--line);
 }
-
-
+ 
 .divider span {
-    padding: 0 10px;
+    padding: 0 12px;
 }
-
-
-/* Register Button */
-
+ 
+ 
+/* ============================
+   Register button
+   ============================ */
+ 
 .register-btn {
     width: 100%;
-
     padding: 12px;
-
-    margin-top: 0;
-
-    border: 1px solid #2563eb;
-
-    border-radius: 8px;
-
-    background: white;
-
-    color: #2563eb;
-
-    font-size: 15px;
-
+ 
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+ 
+    background: var(--gold-tint);
+    color: #7A5A1C;
+ 
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+ 
     cursor: pointer;
-
-    transition: all 0.2s ease;
+    transition: background 0.15s ease, transform 0.1s ease;
 }
-
-
-/* Register Hover */
-
+ 
 .register-btn:hover {
-    background: #eff6ff;
+    background: #F1E1BE;
 }
-
-
-/* Register Active */
-
+ 
 .register-btn:active {
     transform: scale(0.98);
 }
-
-
-/* Mobile Responsive */
-
+ 
+ 
+/* ============================
+   Footnote
+   ============================ */
+ 
+.footnote {
+    margin-top: 26px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    color: var(--ink-faint);
+}
+ 
+ 
+/* ============================
+   Accessibility — visible keyboard focus
+   ============================ */
+ 
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--emerald);
+    outline-offset: 2px;
+}
+ 
+ 
+/* ============================
+   Mobile responsive
+   ============================ */
+ 
 @media (max-width: 450px) {
-
-    .container {
-        padding: 15px;
-    }
-
-    .login-card {
-        padding: 25px 20px;
-    }
-
+ 
     h1 {
-        font-size: 35px;
+        font-size: 34px;
     }
-
+ 
+    .login-card {
+        padding: 30px 22px 44px;
+    }
+ 
 }
