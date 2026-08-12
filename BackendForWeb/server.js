@@ -44,7 +44,7 @@ app.post("/api/login", (req, res) => {
     const sql = "SELECT * FROM users WHERE email = ?";
 
 
-    db.query(sql, [email], async (err, result) => {
+    db.query(sql, [email], (err, result) => {
 
         if (err) {
 
@@ -73,22 +73,20 @@ app.post("/api/login", (req, res) => {
         const user = result[0];
 
 
-        // Compare password
-        const passwordCorrect = await(
-            password,
-            user.password
-        );
 
 
         // Password incorrect
-        if (!passwordCorrect) {
+        if (password !== user.password) {
 
             return res.status(401).json({
+
                 success: false,
                 message: "Password is wrong"
+
             });
 
         }
+
 
 
         // Login successful
