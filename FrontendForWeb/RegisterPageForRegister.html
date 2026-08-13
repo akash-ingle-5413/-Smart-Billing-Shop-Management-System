@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RetailIQ - Create Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleOne.css">
+</head>
+ 
+<body>
+ 
+<div class="container">
+ 
+    <div class="brand">
+        <div class="logo">🛒</div>
+        <h1>RetailIQ</h1>
+        <div class="barcode" aria-hidden="true"></div>
+        <p>Smart Billing & Shop Management System</p>
+    </div>
+ 
+    <div class="login-card">
+ 
+        <span class="ticket-no">NEW ACCOUNT</span>
+ 
+        <h2>Sign up</h2>
+ 
+        <p class="subtitle">
+            Set up your shop in a couple of minutes
+        </p>
+ 
+        <form id="registerForm">
+ 
+            <label class="field-label" for="shopName">Shop name</label>
+            <input
+                type="text"
+                id="shopName"
+                placeholder="e.g. Sharma General Store"
+                required
+            >
+ 
+            <label class="field-label" for="fullName">Owner's full name</label>
+            <input
+                type="text"
+                id="fullName"
+                placeholder="Your name"
+                required
+            >
+ 
+            <label class="field-label" for="regEmail">Email or mobile number</label>
+            <input
+                type="email"
+                id="regEmail"
+                placeholder="you@yourshop.com"
+                required
+            >
+ 
+            <label class="field-label" for="regPassword">Password</label>
+            <input
+                type="password"
+                id="regPassword"
+                placeholder="Create a password"
+                required
+            >
+ 
+            <p class="terms">
+                By signing up, you agree to our
+                <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+            </p>
+ 
+            <button type="submit">
+                Sign up
+            </button>
+ 
+        </form>
+ 
+        <p id="regMessage"></p>
+ 
+    </div>
+ 
+    <div class="switch-box">
+        <p>Already have an account? <a href="index.html">Log in</a></p>
+    </div>
+ 
+</div>
+ 
+ 
+<script src="script.js"></script>
+</body>
+</html>
