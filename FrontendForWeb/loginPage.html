@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Log in · RetailIQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="loginPage.css">
+</head>
+<body>
+<div class="wrap">
+ 
+  <aside class="receipt-side" aria-hidden="true">
+    <div class="receipt">
+      <h2>Sharma General Store</h2>
+      <p class="sub">Bill #1042 · Paid by UPI</p>
+      <div class="row"><span>Basmati rice, 5 kg</span><span>₹560</span></div>
+      <div class="row"><span>Toor dal, 2 kg</span><span>₹252</span></div>
+      <div class="row"><span>Butter, 100 g</span><span>₹58</span></div>
+      <div class="total"><span>Total</span><b>₹870</b></div>
+    </div>
+    <p class="tagline">Bill in seconds. Know your stock by the hour.</p>
+    <p class="tagline-sub">Billing, inventory and daily sales for your shop, in one place.</p>
+  </aside>
+ 
+  <main class="auth">
+    <section class="card" aria-labelledby="title">
+      <div class="brand">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="var(--brand)"/><path d="M12 9h16v22l-3-2-2.5 2L20 29l-2.5 2L15 29l-3 2z" fill="var(--on-brand)"/><rect x="15.5" y="14" width="9" height="2.2" rx="1.1" fill="var(--brand)"/><rect x="15.5" y="19" width="9" height="2.2" rx="1.1" fill="var(--accent)"/></svg>
+        <span id="title">RetailIQ</span>
+      </div>
+      <p class="lead">Log in to manage your shop</p>
+ 
+      <form id="login" novalidate>
+        <div class="field">
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email address" aria-label="Email address" aria-describedby="email-err" required>
+          <p class="err" id="email-err" role="alert"></p>
+        </div>
+        <div class="field pw">
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password" aria-describedby="pw-err" required>
+          <button type="button" class="toggle" id="toggle" aria-label="Show password" aria-pressed="false">Show</button>
+          <p class="err" id="pw-err" role="alert"></p>
+        </div>
+        <button class="btn" id="submit" type="submit">Log in</button>
+        <p class="status" id="status" role="status"></p>
+      </form>
+ 
+      <div class="divider">OR</div>
+      <a class="forgot" href="forgot-password.html">Forgot password?</a>
+    </section>
+ 
+    <section class="card small">
+      New to RetailIQ? <a href="register.html">Create an account</a>
+    </section>
+    <p class="foot">Smart Billing &amp; Shop Management System</p>
+  </main>
+</div>
+ 
+<script src="LoginPage.js"></script>
+</body>
+</html>
