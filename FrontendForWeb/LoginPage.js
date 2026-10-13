@@ -31,7 +31,28 @@
          body:JSON.stringify({email:v,password:pw.value})}) */
     setTimeout(function(){
       btn.disabled=false;btn.textContent='Log in';
-      status.textContent='Form is valid. Connect this form to your backend to complete login.';
+     status.textContent = "Checking...";
+
+fetch("http://localhost:8080/api/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        email: document.getElementById("email").value.trim(),
+        password: document.getElementById("password").value
+    })
+})
+.then(res => res.json())
+.then(data => {
+    if (data.success) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        window.location.href = "index.html";
+    } else {
+        status.textContent = data.message;
+    }
+})
+.catch(() => {
+    status.textContent = "Server not reachable";
+});
       status.className='status show';
     },700);
   });
