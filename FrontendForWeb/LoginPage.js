@@ -36,3 +36,36 @@
     },700);
   });
 })();
+
+const registerForm = document.getElementById("registerForm");
+
+if (registerForm) {
+    registerForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = {
+            shopName: document.getElementById("shopName").value.trim(),
+            fullName: document.getElementById("fullName").value.trim(),
+            email: document.getElementById("regEmail").value.trim(),
+            password: document.getElementById("regPassword").value
+        };
+
+        fetch("http://localhost:8080/api/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            const msg = document.getElementById("regMessage");
+            msg.textContent = result.message;
+
+            if (result.success) {
+                setTimeout(() => window.location.href = "loginPage.html", 1000);
+            }
+        })
+        .catch(() => {
+            document.getElementById("regMessage").textContent = "Server not reachable";
+        });
+    });
+}
