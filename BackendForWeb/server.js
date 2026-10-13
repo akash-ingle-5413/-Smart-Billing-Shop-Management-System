@@ -156,7 +156,7 @@ app.post("/api/register", (req, res) => {
             VALUES (?, ?, ?, ?, ?)
         `;
 
-        db.query(insertSql, [shopName, fullName, emailValue, mobileValue, password], (err2) => {
+        db.query(insertSql, [shopName, fullName, emailValue, mobileValue, password], (err2, insertResult) => {
 
             if (err2) {
                 console.log(err2);
@@ -166,10 +166,15 @@ app.post("/api/register", (req, res) => {
                 });
             }
 
-            return res.status(201).json({
-                success: true,
-                message: "Registration successful"
-            });
+             return res.status(201).json({
+             success: true,
+             message: "Registration successful",
+           user: {
+              id: insertResult.insertId,
+             name: fullName,
+             email: emailValue || mobileValue
+    }
+});
 
         });
 
